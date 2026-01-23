@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-light text-dark transition-colors duration-300;
+  }
+
+  .dark body {
+    @apply bg-dark text-light;
+  }
+}
+
+@layer components {
+  .btn-soft {
+    @apply px-6 py-3 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg active:scale-95;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
