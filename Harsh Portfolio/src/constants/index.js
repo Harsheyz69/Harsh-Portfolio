@@ -1,4 +1,4 @@
-import { Linkedin, Github, Mail, MapPin, Phone } from "lucide-react";
+import { Linkedin, Github, Mail, MapPin, Phone, Code2, Braces, Database, FileCode, Layers, Box, GitBranch, Terminal, Container, Boxes, BookOpen } from "lucide-react";
 
 export const HERO_CONTENT = {
     name: "Harsh Vardhan Sharma",
@@ -26,9 +26,41 @@ export const EDUCATION = [
 ];
 
 export const SKILLS = [
-    { category: "Languages", items: ["Python", "C++", "C", "JavaScript", "TypeScript", "HTML5", "CSS3", "SQL"] },
-    { category: "Frameworks & Libraries", items: ["React.js", "Tailwind CSS", "Pandas", "NumPy", "TensorFlow", "Sci-kit Learn"] },
-    { category: "Developer Tools", items: ["Git", "GitHub", "VS Code", "Docker", "Kubernetes", "Jupyter Notebook"] },
+    {
+        category: "Languages",
+        items: [
+            { name: "Python", icon: Code2 },
+            { name: "C++", icon: Braces },
+            { name: "C", icon: FileCode },
+            { name: "JavaScript", icon: Code2 },
+            { name: "TypeScript", icon: Code2 },
+            { name: "HTML5", icon: FileCode },
+            { name: "CSS3", icon: Layers },
+            { name: "SQL", icon: Database }
+        ]
+    },
+    {
+        category: "Frameworks & Libraries",
+        items: [
+            { name: "React.js", icon: Box },
+            { name: "Tailwind CSS", icon: Layers },
+            { name: "Pandas", icon: Database },
+            { name: "NumPy", icon: Boxes },
+            { name: "TensorFlow", icon: Boxes },
+            { name: "Sci-kit Learn", icon: BookOpen }
+        ]
+    },
+    {
+        category: "Developer Tools",
+        items: [
+            { name: "Git", icon: GitBranch },
+            { name: "GitHub", icon: Github },
+            { name: "VS Code", icon: Terminal },
+            { name: "Docker", icon: Container },
+            { name: "Kubernetes", icon: Container },
+            { name: "Jupyter Notebook", icon: BookOpen }
+        ]
+    },
 ];
 
 export const PROJECTS = [
@@ -73,7 +105,7 @@ export const EXPERIENCE = [
         ]
     },
     {
-        role: "Technical Member",
+        role: "Core Member",
         company: "WeBytes",
         duration: "2025 - Present",
         description: [
