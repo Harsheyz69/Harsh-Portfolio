@@ -14,9 +14,9 @@ export default {
         orbitron: ['Orbitron', 'sans-serif'],
       },
       colors: {
-        primary: '#FF6D1F', // Orange - Main accent
-        secondary: '#FF8C42', // Light Orange - Secondary accent
-        tertiary: '#D55A0F', // Dark Orange - Tertiary accent
+        primary: '#171717', // Neutral Black
+        secondary: '#404040', // Neutral Dark Gray
+        tertiary: '#525252', // Neutral Gray
         dark: '#000000', // Pure Black
         light: '#FFFFFF', // Pure White
         gray: {

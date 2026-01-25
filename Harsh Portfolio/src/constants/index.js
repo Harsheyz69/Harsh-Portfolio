@@ -55,10 +55,10 @@ export const ABOUT_CONTENT = `Computer Science student specializing in AI and Da
 export const EDUCATION = [
     {
         institution: "SRM University",
-        degree: "B.Tech in Computer Science Engineering with specialization in Artificial Intelligence and Data Science",
+        degree: "B.Tech in CSE (AI & Data Science)",
         duration: "Aug 2024 - Aug 2028",
         location: "Haryana, India",
-        coursework: "Data Structures & Algorithms, OOP (Python), SQL, Web Development, Python Programming, Machine Learning, C++ Programming"
+        coursework: "DSA, OOP, Web Dev, ML, SQL, C++"
     }
 ];
 
@@ -139,30 +139,26 @@ export const SKILLS = [
 export const PROJECTS = [
     {
         title: "N.Y.R.A - New Gen Your Reliable Assistant",
-        tech: ["React.js", "TypeScript", "APIs"],
+        tech: ["React", "TypeScript", "Gemini API"],
         description: [
-            "Developed comprehensive AI assistant with React.js and TypeScript for type-safe frontend architecture",
-            "Integrated Google Gemini APIs for natural language processing and creative content generation",
-            "Implemented real-time Voice-to-Text and Text-to-Speech using Web Speech API for enhanced accessibility",
-            "Designed responsive UI with Tailwind CSS, supporting dark mode across desktop and mobile devices"
+            "AI Assistant built with React, TypeScript, and Google Gemini API.",
+            "Features real-time Voice-to-Text/Speech and a responsive dark mode UI."
         ]
     },
     {
         title: "Gold Spotify (Music Player Clone)",
         tech: ["JavaScript", "CSS3", "HTML5"],
         description: [
-            "Engineered visually distinct music streaming interface with custom 'Gold' theme using CSS3 variables",
-            "Built core playback logic with pure JavaScript, managing audio state and DOM manipulation without libraries",
-            "Optimized asset loading and layout performance for smooth transitions and low-latency track switching"
+            "Custom-themed music player featuring a vanilla JS audio engine.",
+            "Optimized asset loading for high performance and smooth transitions."
         ]
     },
     {
         title: "E-Commerce Sales Analysis Dashboard",
         tech: ["Python", "Pandas", "Matplotlib"],
         description: [
-            "Developed data analysis tool using Python and Pandas to process 10,000+ sales records",
-            "Visualized KPIs (monthly revenue, category growth) using Matplotlib and Seaborn",
-            "Implemented data cleaning scripts to handle missing values and outliers, improving accuracy by 15%"
+            "Python/Pandas data analysis tool processing 10k+ records.",
+            "Visualized revenue KPIs and growth metrics using Matplotlib & Seaborn."
         ]
     }
 ];
@@ -173,8 +169,8 @@ export const EXPERIENCE = [
         company: "SRM University",
         duration: "Sept 2025",
         description: [
-            "Led team of 6 students to develop crop health monitoring system prototype within 24-hour deadline",
-            "Coordinated frontend and backend integration, presented scalable solution to judging panel"
+            "Led 6-member team to build a crop monitoring prototype in 24h.",
+            "Coordinated full-stack integration and final presentation."
         ]
     },
     {
@@ -182,7 +178,7 @@ export const EXPERIENCE = [
         company: "WeBytes",
         duration: "2025 - Present",
         description: [
-            "Organizing workshops and collaborate on organizing campus-wide technical events"
+            "Organizing technical workshops and campus events."
         ]
     }
 ];

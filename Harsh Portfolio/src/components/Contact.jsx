@@ -20,19 +20,19 @@ const Contact = () => {
 
                     <div className="space-y-6">
                         <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
-                            <div className="p-3 bg-primary/10 rounded-full text-dark dark:text-primary">
+                            <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-black dark:text-white">
                                 <Mail size={24} />
                             </div>
                             <div>
                                 <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                                <a href={`mailto:${HERO_CONTENT.email}`} className="font-medium hover:text-primary transition-colors">
+                                <a href={`mailto:${HERO_CONTENT.email}`} className="font-medium hover:text-black dark:hover:text-white transition-colors">
                                     {HERO_CONTENT.email}
                                 </a>
                             </div>
                         </div>
 
                         <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
-                            <div className="p-3 bg-primary/10 rounded-full text-dark dark:text-primary">
+                            <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-black dark:text-white">
                                 <Phone size={24} />
                             </div>
                             <div>
@@ -42,7 +42,7 @@ const Contact = () => {
                         </div>
 
                         <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
-                            <div className="p-3 bg-primary/10 rounded-full text-dark dark:text-primary">
+                            <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-black dark:text-white">
                                 <MapPin size={24} />
                             </div>
                             <div>
@@ -66,7 +66,7 @@ const Contact = () => {
                         <input
                             type="text"
                             id="name"
-                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all dark:text-white"
+                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent outline-none transition-all dark:text-white"
                             placeholder="Your Name"
                         />
                     </div>
@@ -75,7 +75,7 @@ const Contact = () => {
                         <input
                             type="email"
                             id="email"
-                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all dark:text-white"
+                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent outline-none transition-all dark:text-white"
                             placeholder="your@email.com"
                         />
                     </div>
@@ -84,13 +84,13 @@ const Contact = () => {
                         <textarea
                             id="message"
                             rows="4"
-                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all dark:text-white"
+                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent outline-none transition-all dark:text-white"
                             placeholder="Your message..."
                         ></textarea>
                     </div>
                     <button
                         type="submit"
-                        className="w-full btn-soft bg-primary text-white hover:bg-primary/90 transform hover:scale-[1.02]"
+                        className="w-full btn-soft bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transform hover:scale-[1.02] font-medium"
                     >
                         Send Message
                     </button>

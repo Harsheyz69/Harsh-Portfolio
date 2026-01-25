@@ -12,14 +12,14 @@ const ProjectCard = ({ title, tech, description, index }) => (
     >
         <div className="p-8 flex flex-col h-full">
             <div className="flex justify-between items-start mb-6">
-                <h3 className="text-2xl font-bold text-black dark:text-white group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold text-black dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                     {title}
                 </h3>
                 <div className="flex gap-3">
                     <a href="#" className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 hover:text-primary transition-colors">
                         <Github size={22} />
                     </a>
-                    <a href="#" className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 hover:text-primary transition-colors">
+                    <a href="#" className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 hover:text-black dark:hover:text-white transition-colors">
                         <ExternalLink size={22} />
                     </a>
                 </div>
@@ -29,7 +29,7 @@ const ProjectCard = ({ title, tech, description, index }) => (
                 {tech.map((t, i) => (
                     <span
                         key={i}
-                        className="px-4 py-1.5 text-sm font-medium rounded-full bg-primary/10 text-primary dark:text-primary border border-primary/30 dark:border-primary/50"
+                        className="px-4 py-1.5 text-sm font-medium rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700"
                     >
                         {t}
                     </span>
@@ -39,7 +39,7 @@ const ProjectCard = ({ title, tech, description, index }) => (
             <ul className="space-y-3 flex-grow">
                 {description.map((item, i) => (
                     <li key={i} className="text-base text-gray-600 dark:text-gray-300 flex items-start">
-                        <span className="mr-3 mt-2 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
+                        <span className="mr-3 mt-2 w-1.5 h-1.5 bg-black dark:bg-white rounded-full flex-shrink-0" />
                         {item}
                     </li>
                 ))}
@@ -60,7 +60,7 @@ const Projects = () => {
                     className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-black dark:text-white"
                 >
                     Featured Projects
-                    <span className="block w-20 h-1 bg-primary mx-auto mt-4 rounded-full" />
+                    <span className="block w-20 h-1 bg-black dark:bg-white mx-auto mt-4 rounded-full" />
                 </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

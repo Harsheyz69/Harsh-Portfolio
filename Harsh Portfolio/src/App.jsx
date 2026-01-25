@@ -24,7 +24,7 @@ function App() {
       {!showWelcome && (
         <div className="bg-light dark:bg-dark min-h-screen transition-colors duration-300">
           <Navbar />
-          <main>
+          <main className="md:pl-32">
             <Hero />
             <About />
             <Experience />
