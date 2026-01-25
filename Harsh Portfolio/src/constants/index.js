@@ -1,4 +1,25 @@
-import { Linkedin, Github, Mail, MapPin, Phone, Code2, Braces, Database, FileCode, Layers, Box, GitBranch, Terminal, Container, Boxes, BookOpen } from "lucide-react";
+import { Linkedin, Github, Terminal } from "lucide-react";
+import {
+    SiPython,
+    SiCplusplus,
+    SiC,
+    SiJavascript,
+    SiTypescript,
+    SiHtml5,
+    SiCss3,
+    SiMysql,
+    SiReact,
+    SiTailwindcss,
+    SiPandas,
+    SiNumpy,
+    SiTensorflow,
+    SiScikitlearn,
+    SiGit,
+    SiGithub,
+    SiDocker,
+    SiKubernetes,
+    SiJupyter
+} from "react-icons/si";
 
 export const HERO_CONTENT = {
     name: "Harsh Vardhan Sharma",
@@ -6,7 +27,7 @@ export const HERO_CONTENT = {
     description: "Specializing in AI and Machine Learning. Passionate about leveraging AI and data-driven approaches to solve real-world problems. With the experience in Full stack Development",
     location: "New Delhi, India",
     phone: "+91 8810441651",
-    email: "harshvardhansharma26@proton.me",
+    email: "harsh.vsharma1515@gmail.com",
     socials: [
         { icon: Linkedin, href: "https://linkedin.com/in/harsheez", label: "LinkedIn" },
         { icon: Github, href: "https://github.com/harsheyz69", label: "GitHub" },
@@ -29,36 +50,36 @@ export const SKILLS = [
     {
         category: "Languages",
         items: [
-            { name: "Python", icon: Code2 },
-            { name: "C++", icon: Braces },
-            { name: "C", icon: FileCode },
-            { name: "JavaScript", icon: Code2 },
-            { name: "TypeScript", icon: Code2 },
-            { name: "HTML5", icon: FileCode },
-            { name: "CSS3", icon: Layers },
-            { name: "SQL", icon: Database }
+            { name: "Python", icon: SiPython },
+            { name: "C++", icon: SiCplusplus },
+            { name: "C", icon: SiC },
+            { name: "JavaScript", icon: SiJavascript },
+            { name: "TypeScript", icon: SiTypescript },
+            { name: "HTML5", icon: SiHtml5 },
+            { name: "CSS3", icon: SiCss3 },
+            { name: "SQL", icon: SiMysql }
         ]
     },
     {
         category: "Frameworks & Libraries",
         items: [
-            { name: "React.js", icon: Box },
-            { name: "Tailwind CSS", icon: Layers },
-            { name: "Pandas", icon: Database },
-            { name: "NumPy", icon: Boxes },
-            { name: "TensorFlow", icon: Boxes },
-            { name: "Sci-kit Learn", icon: BookOpen }
+            { name: "React.js", icon: SiReact },
+            { name: "Tailwind CSS", icon: SiTailwindcss },
+            { name: "Pandas", icon: SiPandas },
+            { name: "NumPy", icon: SiNumpy },
+            { name: "TensorFlow", icon: SiTensorflow },
+            { name: "Sci-kit Learn", icon: SiScikitlearn }
         ]
     },
     {
         category: "Developer Tools",
         items: [
-            { name: "Git", icon: GitBranch },
-            { name: "GitHub", icon: Github },
+            { name: "Git", icon: SiGit },
+            { name: "GitHub", icon: SiGithub },
             { name: "VS Code", icon: Terminal },
-            { name: "Docker", icon: Container },
-            { name: "Kubernetes", icon: Container },
-            { name: "Jupyter Notebook", icon: BookOpen }
+            { name: "Docker", icon: SiDocker },
+            { name: "Kubernetes", icon: SiKubernetes },
+            { name: "Jupyter Notebook", icon: SiJupyter }
         ]
     },
 ];

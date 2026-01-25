@@ -10,7 +10,7 @@ const Section = ({ id, title, children, className = "" }) => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-dark dark:text-light"
+                        className="text-3xl md:text-4xl font-heading font-bold text-center mb-16 text-black dark:text-white"
                     >
                         {title}
                         <span className="block w-20 h-1 bg-primary mx-auto mt-4 rounded-full" />

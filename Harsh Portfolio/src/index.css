@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Pacifico&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-light text-dark transition-colors duration-300;
+    @apply bg-white text-black transition-colors duration-300;
   }
 
   .dark body {
-    @apply bg-dark text-light;
+    @apply bg-black text-white;
   }
 }
 

@@ -36,7 +36,7 @@ const TypewriterText = ({ text }) => {
     return (
         <span className="inline-flex items-center">
             <motion.span>{displayText}</motion.span>
-            <span className={`${cursorVisible ? "opacity-100" : "opacity-0"} ml-1 text-tertiary dark:text-primary`}>|</span>
+            <span className={`${cursorVisible ? "opacity-100" : "opacity-0"} ml-1 text-primary dark:text-primary`}>|</span>
         </span>
     );
 };
@@ -50,7 +50,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-lg sm:text-xl md:text-2xl text-tertiary dark:text-primary font-medium mb-4 h-8"
+                        className="text-lg sm:text-xl md:text-2xl text-primary dark:text-primary font-medium mb-4 h-8"
                     >
                         <TypewriterText text="Hello, I'm" />
                     </motion.h2>
@@ -58,7 +58,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-4xl sm:text-6xl md:text-7xl font-heading font-black text-dark dark:text-light mb-6 tracking-tight"
+                        className="text-4xl sm:text-6xl md:text-7xl font-heading font-black text-black dark:text-white mb-6 tracking-tight"
                     >
                         {HERO_CONTENT.name}
                     </motion.h1>
@@ -90,7 +90,7 @@ const Hero = () => {
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-dark dark:text-light hover:bg-secondary hover:text-white dark:hover:bg-primary transition-all duration-300 transform hover:scale-110"
+                                className="p-3 rounded-full bg-gray-100 dark:bg-gray-900 text-black dark:text-white hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-all duration-300 transform hover:scale-110"
                                 aria-label={social.label}
                             >
                                 <social.icon size={24} />
@@ -99,7 +99,7 @@ const Hero = () => {
                         <a
                             href="/resume.pdf"
                             download="Harsh_Vardhan_Sharma_Resume.pdf"
-                            className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-dark dark:text-light hover:bg-secondary hover:text-white dark:hover:bg-primary transition-all duration-300 transform hover:scale-110"
+                            className="p-3 rounded-full bg-gray-100 dark:bg-gray-900 text-black dark:text-white hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-all duration-300 transform hover:scale-110"
                             aria-label="Download Resume"
                             title="Download Resume"
                         >
@@ -110,7 +110,7 @@ const Hero = () => {
             </div>
 
             {/* Background decoration */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-tertiary/20 dark:bg-primary/20 rounded-full blur-[100px] -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 dark:bg-primary/20 rounded-full blur-[100px] -z-10" />
         </section>
     );
 };
