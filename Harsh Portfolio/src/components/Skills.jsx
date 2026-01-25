@@ -112,16 +112,16 @@ const Skills = () => {
                 <div className="bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <h3 className="text-xl font-heading font-bold text-center mb-6 text-black dark:text-white">Coding Activity</h3>
                     <div className="relative">
-                        {/* Light Mode Streak */}
+                        {/* Light Mode Stats */}
                         <img
-                            src="https://streak-stats.demolab.com?user=harsheyz69&theme=default&hide_border=true&date_format=j%20M%5B%20Y%5D"
-                            alt="GitHub Streak"
+                            src="https://github-readme-stats.vercel.app/api?username=harsheyz69&show_icons=true&theme=default&hide_border=true&bg_color=ffffff"
+                            alt="GitHub Stats"
                             className="block dark:hidden w-full max-w-lg"
                         />
-                        {/* Dark Mode Streak - Custom Monochrome */}
+                        {/* Dark Mode Stats */}
                         <img
-                            src="https://streak-stats.demolab.com?user=harsheyz69&theme=dark&hide_border=true&date_format=j%20M%5B%20Y%5D&background=000000&ring=FFFFFF&fire=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=FFFFFF&sideLabels=FFFFFF&dates=FFFFFF"
-                            alt="GitHub Streak"
+                            src="https://github-readme-stats.vercel.app/api?username=harsheyz69&show_icons=true&theme=dark&hide_border=true&bg_color=000000"
+                            alt="GitHub Stats"
                             className="hidden dark:block w-full max-w-lg"
                         />
                     </div>
