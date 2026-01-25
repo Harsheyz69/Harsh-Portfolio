@@ -1,4 +1,4 @@
-import { Linkedin, Github, Terminal } from "lucide-react";
+import { Linkedin, Github, Terminal, BarChart3, Camera, Video, Database } from "lucide-react";
 import {
     SiPython,
     SiCplusplus,
@@ -7,18 +7,34 @@ import {
     SiTypescript,
     SiHtml5,
     SiCss3,
-    SiMysql,
+    SiMarkdown,
+    SiBootstrap,
+    SiDjango,
+    SiFastapi,
+    SiExpress,
+    SiNodedotjs,
     SiReact,
     SiTailwindcss,
+    SiVite,
+    SiPytorch,
     SiPandas,
     SiNumpy,
     SiTensorflow,
     SiScikitlearn,
+    SiGooglecloud,
+    SiVercel,
+    SiNetlify,
+    SiRender,
+    SiFirebase,
+    SiSupabase,
+    SiAnaconda,
+    SiNpm,
+    SiMysql,
+    SiMongodb,
+    SiPostgresql,
+    SiCanva,
     SiGit,
-    SiGithub,
-    SiDocker,
-    SiKubernetes,
-    SiJupyter
+    SiGithub
 } from "react-icons/si";
 
 export const HERO_CONTENT = {
@@ -57,18 +73,52 @@ export const SKILLS = [
             { name: "TypeScript", icon: SiTypescript },
             { name: "HTML5", icon: SiHtml5 },
             { name: "CSS3", icon: SiCss3 },
-            { name: "SQL", icon: SiMysql }
+            { name: "Markdown", icon: SiMarkdown }
         ]
     },
     {
         category: "Frameworks & Libraries",
         items: [
             { name: "React.js", icon: SiReact },
+            { name: "Node.js", icon: SiNodedotjs },
+            { name: "Express.js", icon: SiExpress },
+            { name: "Django", icon: SiDjango },
+            { name: "FastAPI", icon: SiFastapi },
             { name: "Tailwind CSS", icon: SiTailwindcss },
+            { name: "Bootstrap", icon: SiBootstrap },
+            { name: "Vite", icon: SiVite },
+            { name: "OpenCV", icon: Camera }
+        ]
+    },
+    {
+        category: "Data Science & ML",
+        items: [
+            { name: "TensorFlow", icon: SiTensorflow },
+            { name: "PyTorch", icon: SiPytorch },
+            { name: "scikit-learn", icon: SiScikitlearn },
             { name: "Pandas", icon: SiPandas },
             { name: "NumPy", icon: SiNumpy },
-            { name: "TensorFlow", icon: SiTensorflow },
-            { name: "Sci-kit Learn", icon: SiScikitlearn }
+            { name: "Scipy", icon: BarChart3 },
+            { name: "Matplotlib", icon: BarChart3 }
+        ]
+    },
+    {
+        category: "Cloud & Deployment",
+        items: [
+            { name: "Google Cloud", icon: SiGooglecloud },
+            { name: "Firebase", icon: SiFirebase },
+            { name: "Vercel", icon: SiVercel },
+            { name: "Netlify", icon: SiNetlify },
+            { name: "Render", icon: SiRender }
+        ]
+    },
+    {
+        category: "Databases",
+        items: [
+            { name: "MySQL", icon: SiMysql },
+            { name: "MongoDB", icon: SiMongodb },
+            { name: "PostgreSQL", icon: SiPostgresql },
+            { name: "Supabase", icon: SiSupabase }
         ]
     },
     {
@@ -76,10 +126,12 @@ export const SKILLS = [
         items: [
             { name: "Git", icon: SiGit },
             { name: "GitHub", icon: SiGithub },
-            { name: "VS Code", icon: Terminal },
-            { name: "Docker", icon: SiDocker },
-            { name: "Kubernetes", icon: SiKubernetes },
-            { name: "Jupyter Notebook", icon: SiJupyter }
+            { name: "Windows Terminal", icon: Terminal },
+            { name: "NPM", icon: SiNpm },
+            { name: "Anaconda", icon: SiAnaconda },
+            { name: "Power BI", icon: Database },
+            { name: "Canva", icon: SiCanva },
+            { name: "Premiere Pro", icon: Video }
         ]
     },
 ];

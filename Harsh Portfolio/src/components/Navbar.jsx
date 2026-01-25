@@ -42,7 +42,7 @@ const Navbar = () => {
             className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 rounded-full ${isScrolled
                 ? "top-4 w-[90%] max-w-7xl"
                 : "top-4 w-[90%] max-w-7xl"
-                } bg-white/70 dark:bg-black/70 backdrop-blur-2xl shadow-xl border-2 border-gray-200/60 dark:border-gray-800/60 shadow-black/5 dark:shadow-white/5`}
+                } bg-white/30 dark:bg-black/30 backdrop-blur-md shadow-lg border border-white/20 dark:border-white/10`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16 sm:h-20">
