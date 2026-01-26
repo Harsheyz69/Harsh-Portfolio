@@ -2,6 +2,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect, useState } from "react";
 import { HERO_CONTENT } from "../constants";
 import { Download } from "lucide-react";
+import bitmoji from "../assets/bitmoji.png";
 
 const TypewriterText = ({ text }) => {
     const count = useMotionValue(0);
@@ -46,10 +47,22 @@ const Hero = () => {
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="mb-8 flex justify-center"
+                    >
+                        <img
+                            src={bitmoji}
+                            alt="My Bitmoji"
+                            className="w-40 h-40 md:w-48 md:h-48 drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+                        />
+                    </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-200 font-medium mb-4 h-8"
                     >
                         <TypewriterText text="Hello, I'm" />
@@ -57,7 +70,7 @@ const Hero = () => {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
                         className="text-4xl sm:text-6xl md:text-7xl font-heading font-black text-black dark:text-white mb-6 tracking-tight"
                     >
                         {HERO_CONTENT.name}
@@ -65,7 +78,7 @@ const Hero = () => {
                     <motion.h3
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
                         className="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-8"
                     >
                         {HERO_CONTENT.role}
@@ -73,7 +86,7 @@ const Hero = () => {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
+                        transition={{ duration: 0.5, delay: 0.8 }}
                         className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-10 leading-relaxed"
                     >
                         {HERO_CONTENT.description}
@@ -81,7 +94,7 @@ const Hero = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.8 }}
+                        transition={{ duration: 0.5, delay: 1 }}
                         className="flex justify-center gap-6"
                     >
                         {HERO_CONTENT.socials.map((social, index) => (
