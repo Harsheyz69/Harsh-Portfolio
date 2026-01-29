@@ -114,13 +114,13 @@ const Skills = () => {
                     <div className="relative">
                         {/* Light Mode Stats */}
                         <img
-                            src="https://github-readme-stats.vercel.app/api?username=harsheyz69&show_icons=true&theme=default&hide_border=true&bg_color=ffffff"
+                            src="https://github-readme-streak-stats.herokuapp.com/?user=harsheyz69&theme=default&hide_border=true"
                             alt="GitHub Stats"
                             className="block dark:hidden w-full max-w-lg"
                         />
                         {/* Dark Mode Stats */}
                         <img
-                            src="https://github-readme-stats.vercel.app/api?username=harsheyz69&show_icons=true&theme=dark&hide_border=true&bg_color=000000"
+                            src="https://github-readme-streak-stats.herokuapp.com/?user=harsheyz69&theme=dark&hide_border=true&background=000000"
                             alt="GitHub Stats"
                             className="hidden dark:block w-full max-w-lg"
                         />
