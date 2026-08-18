@@ -3,132 +3,132 @@ import { useState } from "react";
 import { SKILLS } from "../constants";
 import Section from "./Section";
 
-const SkillPill = ({ skill, index, variant = "primary" }) => {
-    const Icon = skill.icon;
-    const [isHovered, setIsHovered] = useState(false);
+const SkillPill = ({ skill, index }) => {
+  const Icon = skill.icon;
+  const [hovered, setHovered] = useState(false);
 
-    const baseClasses = "group relative px-2.5 py-1.5 md:px-4 md:py-2.5 rounded-lg md:rounded-xl font-medium text-[10px] sm:text-xs md:text-sm shadow-lg border backdrop-blur-sm flex items-center gap-1.5 md:gap-2 flex-shrink-0 transition-all duration-300 cursor-pointer";
-
-    const variantClasses = variant === "primary"
-        ? "bg-white/90 dark:bg-gray-800/90 text-gray-800 dark:text-gray-200 border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl hover:border-black/50 dark:hover:border-white/50 md:hover:-translate-y-1 active:scale-95"
-        : "bg-gray-100/90 dark:bg-gray-900/90 text-gray-900 dark:text-gray-100 border-gray-300/50 dark:border-gray-600/50 hover:shadow-xl hover:border-black/50 dark:hover:border-white/50 md:hover:-translate-y-1 active:scale-95"
-
-    return (
-        <div
-            className={`${baseClasses} ${variantClasses}`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            <Icon
-                className={`w-3.5 h-3.5 md:w-4 md:h-4 transition-all duration-300 ${isHovered
-                    ? 'text-black dark:text-white scale-110 rotate-12'
-                    : 'text-gray-600 dark:text-gray-400'
-                    }`}
-            />
-            <span className="font-orbitron font-semibold tracking-wide whitespace-nowrap">{skill.name}</span>
-            {isHovered && (
-                <motion.div
-                    className="absolute inset-0 rounded-2xl bg-black/5 dark:bg-white/5 -z-10 blur-xl"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                />
-            )}
-        </div>
-    );
+  return (
+    <div
+      className="group relative flex items-center gap-2 px-3 py-2 rounded-xl flex-shrink-0 font-mono text-xs font-medium cursor-pointer transition-all duration-300"
+      style={{
+        background: hovered ? 'rgba(249,115,22,0.08)' : 'var(--surface-2)',
+        border: `1px solid ${hovered ? 'rgba(249,115,22,0.4)' : 'var(--border)'}`,
+        color: hovered ? 'var(--accent-bright)' : 'var(--text-2)',
+        transform: hovered ? 'translateY(-2px)' : 'none',
+        boxShadow: hovered ? '0 8px 20px -8px rgba(249,115,22,0.25)' : 'none',
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Icon
+        className="w-4 h-4 flex-shrink-0 transition-all duration-300"
+        style={{
+          color: hovered ? 'var(--accent)' : 'var(--text-3)',
+          transform: hovered ? 'scale(1.1) rotate(8deg)' : 'none',
+        }}
+      />
+      <span className="whitespace-nowrap tracking-wide">{skill.name}</span>
+    </div>
+  );
 };
 
-const MarqueeRow = ({ items, direction = "left", duration = 30, variant = "primary" }) => {
-    const [isPaused, setIsPaused] = useState(false);
+const MarqueeRow = ({ items, direction = "left", duration = 30 }) => {
+  const [paused, setPaused] = useState(false);
+  const x = direction === "left" ? [0, -1000] : [-1000, 0];
 
-    const animateX = direction === "left" ? [0, -1000] : [-1000, 0];
+  return (
+    <div
+      className="relative overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-8 z-10 pointer-events-none"
+        style={{ background: 'linear-gradient(to right, var(--surface), transparent)' }} />
+      <div className="absolute right-0 top-0 bottom-0 w-8 z-10 pointer-events-none"
+        style={{ background: 'linear-gradient(to left, var(--surface), transparent)' }} />
 
-    return (
-        <div
-            className="relative overflow-hidden"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-        >
-            {/* Gradient overlays for smooth fade */}
-            <div className="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-gray-50 dark:from-gray-900/50 to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-gray-50 dark:from-gray-900/50 to-transparent z-10 pointer-events-none" />
-
-            <motion.div
-                className="flex gap-3 md:gap-4 py-2 md:py-3"
-                animate={{ x: isPaused ? undefined : animateX }}
-                transition={{
-                    x: {
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: duration,
-                        ease: "linear",
-                    },
-                }}
-            >
-                {[...items, ...items, ...items, ...items].map((skill, index) => (
-                    <SkillPill key={index} skill={skill} index={index} variant={variant} />
-                ))}
-            </motion.div>
-        </div>
-    );
+      <motion.div
+        className="flex gap-3 py-2"
+        animate={{ x: paused ? undefined : x }}
+        transition={{
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration,
+            ease: "linear",
+          },
+        }}
+      >
+        {[...items, ...items, ...items, ...items].map((skill, i) => (
+          <SkillPill key={i} skill={skill} index={i} />
+        ))}
+      </motion.div>
+    </div>
+  );
 };
 
 const Skills = () => {
-    return (
-        <Section id="skills" title="Technical Skills" className="bg-white dark:bg-black">
-            {/* Grid of Category Boxes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
-                {SKILLS.map((skillGroup, index) => {
-                    const isEven = index % 2 === 0;
+  return (
+    <Section id="skills" title="Technical Skills">
+      {/* Grid of category boxes */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+        {SKILLS.map((group, index) => {
+          const isEven = index % 2 === 0;
+          return (
+            <motion.div
+              key={group.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="rounded-xl p-5 space-y-3"
+              style={{
+                background: isEven ? 'var(--surface)' : 'var(--surface-2)',
+                border: `1px solid ${isEven ? 'rgba(249,115,22,0.2)' : 'var(--border)'}`,
+              }}
+            >
+              <h3
+                className="font-heading font-semibold text-base text-center"
+                style={{ color: isEven ? 'var(--accent-bright)' : 'var(--text-1)' }}
+              >
+                {group.category}
+              </h3>
+              <MarqueeRow
+                items={group.items}
+                direction={isEven ? "left" : "right"}
+                duration={35 + index * 5}
+              />
+            </motion.div>
+          );
+        })}
+      </div>
 
-                    return (
-                        <motion.div
-                            key={skillGroup.category}
-                            className={`space-y-2 md:space-y-4 p-3 md:p-5 rounded-xl border-2 shadow-lg ${isEven
-                                ? "border-gray-200 dark:border-gray-800 bg-white dark:bg-black"
-                                : "border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"
-                                }`}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <h3 className={`text-lg md:text-xl font-orbitron font-bold text-center ${isEven
-                                ? "bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent"
-                                : "text-black dark:text-white"
-                                }`}>
-                                {skillGroup.category}
-                            </h3>
-
-
-                            <MarqueeRow items={skillGroup.items} direction={isEven ? "left" : "right"} duration={35 + index * 5} variant={isEven ? "primary" : "secondary"} />
-                        </motion.div>
-                    );
-                })}
-            </div>
-
-            {/* GitHub Streak Section */}
-            <div className="mt-16 flex justify-center w-full">
-                <div className="bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <h3 className="text-xl font-heading font-bold text-center mb-6 text-black dark:text-white">Coding Activity</h3>
-                    <div className="relative">
-                        {/* Light Mode Stats */}
-                        <img
-                            src="https://github-readme-streak-stats.herokuapp.com/?user=harsheyz69&theme=default&hide_border=true"
-                            alt="GitHub Stats"
-                            className="block dark:hidden w-full max-w-lg"
-                        />
-                        {/* Dark Mode Stats */}
-                        <img
-                            src="https://github-readme-streak-stats.herokuapp.com/?user=harsheyz69&theme=dark&hide_border=true&background=000000"
-                            alt="GitHub Stats"
-                            className="hidden dark:block w-full max-w-lg"
-                        />
-                    </div>
-                </div>
-            </div>
-        </Section>
-    );
+      {/* GitHub Streak */}
+      <div className="flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="rounded-2xl p-6"
+          style={{
+            background: 'var(--surface)',
+            border: '1px solid var(--border)',
+          }}
+        >
+          <h3 className="font-heading font-semibold text-center mb-5" style={{ color: 'var(--text-1)' }}>
+            Coding Activity
+          </h3>
+          <img
+            src="https://github-readme-streak-stats.herokuapp.com/?user=harsheyz69&theme=dark&hide_border=true&background=111113&ring=F97316&fire=FB923C&currStreakLabel=F97316"
+            alt="GitHub Streak Stats"
+            className="w-full max-w-lg"
+          />
+        </motion.div>
+      </div>
+    </Section>
+  );
 };
 
 export default Skills;

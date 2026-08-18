@@ -1,28 +1,57 @@
 import { HERO_CONTENT } from "../constants";
 
 const Footer = () => {
-    return (
-        <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p className="text-gray-600 dark:text-gray-400 text-sm text-center md:text-left">
-                    © {new Date().getFullYear()} {HERO_CONTENT.name}. All rights reserved.
-                </p>
-                <div className="flex space-x-6">
-                    {HERO_CONTENT.socials.map((social, index) => (
-                        <a
-                            key={index}
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-500 hover:text-secondary dark:hover:text-primary transition-colors"
-                        >
-                            <social.icon size={20} />
-                        </a>
-                    ))}
-                </div>
-            </div>
-        </footer>
-    );
+  return (
+    <footer
+      className="relative z-10 py-8"
+      style={{
+        background: 'var(--surface)',
+        borderTop: '1px solid var(--border)',
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Brand */}
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-lg grad-bg flex items-center justify-center font-heading font-bold text-xs text-zinc-900">
+            HV
+          </div>
+          <p className="font-mono text-xs" style={{ color: 'var(--text-3)' }}>
+            © {new Date().getFullYear()} {HERO_CONTENT.name}. All rights reserved.
+          </p>
+        </div>
+
+        {/* Socials */}
+        <div className="flex gap-3">
+          {HERO_CONTENT.socials.map((social, index) => (
+            <a
+              key={index}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200"
+              style={{
+                border: '1px solid var(--border)',
+                color: 'var(--text-3)',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.color = 'var(--accent-bright)';
+                e.currentTarget.style.borderColor = 'rgba(249,115,22,0.3)';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.color = 'var(--text-3)';
+                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.transform = 'none';
+              }}
+            >
+              <social.icon size={17} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

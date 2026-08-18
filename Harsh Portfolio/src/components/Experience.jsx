@@ -2,97 +2,100 @@ import { motion } from "framer-motion";
 import { EDUCATION, EXPERIENCE } from "../constants";
 import Section from "./Section";
 
-const TimelineItem = ({ data, isLast }) => (
-    <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="relative pl-8 pb-12 last:pb-0"
-    >
-        {/* Timeline Line (border-l handled by parent?) No, per item relative */}
-        {/* Actually, Shadcn timeline usually uses a continuous border on the PARENT list */}
+const TimelineItem = ({ data }) => (
+  <motion.div
+    initial={{ opacity: 0, x: -20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="relative pl-8 pb-10 last:pb-0"
+  >
+    {/* Glowing orange dot */}
+    <div
+      className="absolute left-[-6px] top-1 w-3 h-3 rounded-full"
+      style={{
+        background: 'var(--accent)',
+        boxShadow: '0 0 10px rgba(249,115,22,0.6)',
+        border: '2px solid var(--bg)',
+        outline: '1px solid var(--accent)',
+      }}
+    />
 
-        {/* Dot on the Line */}
-        <div className="absolute left-[-5px] top-1 h-3 w-3 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-black ring-4 ring-white dark:ring-black" />
+    {/* Duration */}
+    <span className="font-mono text-xs" style={{ color: 'var(--text-3)' }}>
+      {data.duration}
+    </span>
 
-        <div className="flex flex-col gap-2">
-            {/* Date/Duration */}
-            <span className="text-sm font-mono text-gray-500 dark:text-gray-400">
-                {data.duration}
-            </span>
-
-            {/* Content Card (Minimal) */}
-            <div>
-                <h3 className="text-lg font-bold text-black dark:text-white">
-                    {data.role || data.institution}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 font-medium">
-                    {data.company || data.degree}
-                </p>
-                {data.location && (
-                    <p className="text-xs text-gray-400 mt-1">{data.location}</p>
-                )}
-
-                <div className="mt-3 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    {typeof data.description === "string" ? (
-                        <p>{data.description}</p>
-                    ) : (
-                        <ul className="list-disc list-inside space-y-1">
-                            {data.description && data.description.map((item, idx) => (
-                                <li key={idx}>{item}</li>
-                            ))}
-                        </ul>
-                    )}
-                    {data.coursework && (
-                        <p className="italic mt-2 text-xs">Relevant Coursework: {data.coursework}</p>
-                    )}
-                </div>
-            </div>
-        </div>
-    </motion.div>
+    {/* Content */}
+    <div className="mt-2">
+      <h3 className="font-heading font-semibold text-lg" style={{ color: 'var(--text-1)' }}>
+        {data.role || data.institution}
+      </h3>
+      <p className="font-medium mt-0.5" style={{ color: 'var(--accent-bright)' }}>
+        {data.company || data.degree}
+      </p>
+      {data.location && (
+        <p className="text-xs mt-1" style={{ color: 'var(--text-3)' }}>{data.location}</p>
+      )}
+      <div className="mt-3 text-sm leading-relaxed" style={{ color: 'var(--text-2)' }}>
+        {typeof data.description === "string" ? (
+          <p>{data.description}</p>
+        ) : (
+          <ul className="space-y-1">
+            {data.description && data.description.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ background: 'var(--accent)' }} />
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
+        {data.coursework && (
+          <p className="italic mt-2 text-xs" style={{ color: 'var(--text-3)' }}>
+            Relevant Coursework: {data.coursework}
+          </p>
+        )}
+      </div>
+    </div>
+  </motion.div>
 );
 
 const Experience = () => {
-    return (
-        <Section id="experience" title="Journey" className="bg-white dark:bg-black">
-            <div className="max-w-3xl mx-auto px-4">
+  return (
+    <Section id="experience" title="Journey">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Education */}
+        <div>
+          <h3 className="font-heading font-bold text-xl mb-8" style={{ color: 'var(--text-1)' }}>
+            Education
+          </h3>
+          <div
+            className="relative ml-3 space-y-0"
+            style={{ borderLeft: '1px solid var(--border-strong)' }}
+          >
+            {EDUCATION.map((edu, index) => (
+              <TimelineItem key={index} data={edu} />
+            ))}
+          </div>
+        </div>
 
-                {/* Timeline Container */}
-                <div className="space-y-16">
-
-                    {/* Education Section */}
-                    <div>
-                        <h3 className="text-2xl font-bold mb-8 text-black dark:text-white font-heading">Education</h3>
-                        <div className="relative border-l border-gray-200 dark:border-gray-800 ml-3 space-y-0">
-                            {EDUCATION.map((edu, index) => (
-                                <TimelineItem
-                                    key={index}
-                                    data={edu}
-                                    isLast={index === EDUCATION.length - 1}
-                                />
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Experience Section */}
-                    <div>
-                        <h3 className="text-2xl font-bold mb-8 text-black dark:text-white font-heading">Experience</h3>
-                        <div className="relative border-l border-gray-200 dark:border-gray-800 ml-3 space-y-0">
-                            {EXPERIENCE.map((exp, index) => (
-                                <TimelineItem
-                                    key={index}
-                                    data={exp}
-                                    isLast={index === EXPERIENCE.length - 1}
-                                />
-                            ))}
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </Section>
-    );
+        {/* Experience */}
+        <div>
+          <h3 className="font-heading font-bold text-xl mb-8" style={{ color: 'var(--text-1)' }}>
+            Experience
+          </h3>
+          <div
+            className="relative ml-3 space-y-0"
+            style={{ borderLeft: '1px solid var(--border-strong)' }}
+          >
+            {EXPERIENCE.map((exp, index) => (
+              <TimelineItem key={index} data={exp} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
 };
 
 export default Experience;

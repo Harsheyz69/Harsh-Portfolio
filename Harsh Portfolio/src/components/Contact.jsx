@@ -3,101 +3,125 @@ import { HERO_CONTENT } from "../constants";
 import Section from "./Section";
 import { Mail, MapPin, Phone } from "lucide-react";
 
+const inputStyle = {
+  width: '100%',
+  padding: '12px 16px',
+  borderRadius: '10px',
+  background: 'var(--surface-2)',
+  border: '1px solid var(--border)',
+  color: 'var(--text-1)',
+  outline: 'none',
+  fontSize: '14px',
+  transition: 'border-color 0.2s',
+  fontFamily: 'Inter, sans-serif',
+};
+
+const InputField = ({ id, label, type = "text", placeholder, rows }) => {
+  const handleFocus = (e) => { e.target.style.borderColor = 'var(--accent)'; };
+  const handleBlur = (e) => { e.target.style.borderColor = 'var(--border)'; };
+
+  return (
+    <div>
+      <label htmlFor={id} className="block font-mono text-xs tracking-wider mb-2" style={{ color: 'var(--text-2)' }}>
+        {label}
+      </label>
+      {rows ? (
+        <textarea
+          id={id}
+          rows={rows}
+          placeholder={placeholder}
+          style={{ ...inputStyle, resize: 'vertical' }}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        />
+      ) : (
+        <input
+          type={type}
+          id={id}
+          placeholder={placeholder}
+          style={inputStyle}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+        />
+      )}
+    </div>
+  );
+};
+
 const Contact = () => {
-    return (
-        <Section id="contact" title="Get In Touch">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
+  return (
+    <Section id="contact" title="Get In Touch">
+      <div className="grid md:grid-cols-2 gap-12 items-start">
+        {/* Left Info */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="font-heading font-bold text-2xl mb-4" style={{ color: 'var(--text-1)' }}>
+            Let's <span className="grad-text">Connect</span>
+          </h3>
+          <p className="mb-8 leading-relaxed" style={{ color: 'var(--text-2)' }}>
+            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+          </p>
+
+          <div className="space-y-5">
+            {[
+              { Icon: Mail, label: "Email", value: HERO_CONTENT.email, href: `mailto:${HERO_CONTENT.email}` },
+              { Icon: Phone, label: "Phone", value: HERO_CONTENT.phone, href: `tel:${HERO_CONTENT.phone}` },
+              { Icon: MapPin, label: "Location", value: HERO_CONTENT.location },
+            ].map(({ Icon, label, value, href }) => (
+              <div key={label} className="flex items-center gap-4">
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(249,115,22,0.1)', color: 'var(--accent-bright)' }}
                 >
-                    <h3 className="text-2xl font-bold mb-6 text-dark dark:text-light">Let's Connect</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
-                        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-                    </p>
+                  <Icon size={20} />
+                </div>
+                <div>
+                  <p className="font-mono text-xs tracking-wider" style={{ color: 'var(--text-3)' }}>{label}</p>
+                  {href ? (
+                    <a href={href} className="font-medium transition-colors hover:text-orange-400" style={{ color: 'var(--text-1)' }}>
+                      {value}
+                    </a>
+                  ) : (
+                    <p className="font-medium" style={{ color: 'var(--text-1)' }}>{value}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
-                    <div className="space-y-6">
-                        <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
-                            <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-black dark:text-white">
-                                <Mail size={24} />
-                            </div>
-                            <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                                <a href={`mailto:${HERO_CONTENT.email}`} className="font-medium hover:text-black dark:hover:text-white transition-colors">
-                                    {HERO_CONTENT.email}
-                                </a>
-                            </div>
-                        </div>
+        {/* Right Form */}
+        <motion.form
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="space-y-5 p-8 rounded-2xl"
+          style={{
+            background: 'var(--surface)',
+            border: '1px solid var(--border)',
+          }}
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <InputField id="name" label="NAME" placeholder="Your Name" />
+          <InputField id="email" label="EMAIL" type="email" placeholder="your@email.com" />
+          <InputField id="message" label="MESSAGE" placeholder="Your message..." rows={4} />
 
-                        <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
-                            <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-black dark:text-white">
-                                <Phone size={24} />
-                            </div>
-                            <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Phone</p>
-                                <p className="font-medium">{HERO_CONTENT.phone}</p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center space-x-4 text-gray-600 dark:text-gray-300">
-                            <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full text-black dark:text-white">
-                                <MapPin size={24} />
-                            </div>
-                            <div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Location</p>
-                                <p className="font-medium">{HERO_CONTENT.location}</p>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                <motion.form
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className="space-y-6 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
-                    onSubmit={(e) => e.preventDefault()}
-                >
-                    <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent outline-none transition-all dark:text-white"
-                            placeholder="Your Name"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent outline-none transition-all dark:text-white"
-                            placeholder="your@email.com"
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
-                        <textarea
-                            id="message"
-                            rows="4"
-                            className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent outline-none transition-all dark:text-white"
-                            placeholder="Your message..."
-                        ></textarea>
-                    </div>
-                    <button
-                        type="submit"
-                        className="w-full btn-soft bg-black dark:bg-white text-white dark:text-black hover:opacity-90 transform hover:scale-[1.02] font-medium"
-                    >
-                        Send Message
-                    </button>
-                </motion.form>
-            </div>
-        </Section>
-    );
+          <button
+            type="submit"
+            className="w-full py-3 rounded-xl font-semibold text-sm text-zinc-900 grad-bg transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.98]"
+            style={{ boxShadow: '0 10px 26px -8px rgba(249,115,22,0.45)' }}
+          >
+            Send Message →
+          </button>
+        </motion.form>
+      </div>
+    </Section>
+  );
 };
 
 export default Contact;
